@@ -107,19 +107,4 @@ function get_info(plant) {
 	json["plants"].push(plants);
 	return json;
 }
-/** Get books reviews **/
-function get_reviews(book) {
-	let json = {};
-	json["reviews"] = [];  
-	for (let i = 3; i < fs.readdirSync("books/" + book + "/").length; i++) {
-		let curr = i-2;
-		let reviewText = fs.readFileSync("books/" + book + "/review" + curr + ".txt", "utf8");
-		let lines = reviewText.split("\n");
-		let review = {};
-		review["name"] = lines[0];
-		review["stars"] = lines[1];
-		review["review"] = lines[2];
-		json["reviews"].push(review);
-	}
-	return json;
-}
+
