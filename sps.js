@@ -16,7 +16,7 @@ Purpose:
 		document.getElementById("home").addEventListener("click", loadPlants);
 		document.getElementById("send").onclick = sendComment;
 		document.getElementById("load").onclick = loadComments;
-	}
+	};
 
 	function sendComment() {
 		let name = document.getElementById("name").value;
@@ -51,23 +51,23 @@ Purpose:
 		singlePlant.style.visibility = "hidden";
 		let url = "https://spschrisandduncan.herokuapp.com?mode=plants";
 			fetch(url)
-			    .then(checkStatus)
-			    .then(function(responseText) {
-			    	json = JSON.parse(responseText);
-			    	for (let i = 0; i < json.plants.length; i++) {
-			    		let plant = document.createElement("div");
-			    		plant.addEventListener("click", plantInfo);
-			    		plant.addEventListener("click", clear);
-			    		plant.folder = json.plants[i].folder;
-			    		let plantName = document.createElement("p");
-			    		plantName.appendChild(document.createTextNode(json.plants[i].name));
-			    		let plantImage = document.createElement("img");
-			    		plantImage.setAttribute("src", "plants/" + json.plants[i].folder + "/plant.jpg");
-			    		plant.appendChild(plantImage);
-			    		plant.appendChild(plantName);
-			    		document.getElementById("allplants").append(plant);
-			    	}
-			    });
+				.then(checkStatus)
+				.then(function(responseText) {
+					json = JSON.parse(responseText);
+					for (let i = 0; i < json.plants.length; i++) {
+						let plant = document.createElement("div");
+						plant.addEventListener("click", plantInfo);
+						plant.addEventListener("click", clear);
+						plant.folder = json.plants[i].folder;
+						let plantName = document.createElement("p");
+						plantName.appendChild(document.createTextNode(json.plants[i].name));
+						let plantImage = document.createElement("img");
+						plantImage.setAttribute("src", "plants/" + json.plants[i].folder + "/plant.jpg");
+						plant.appendChild(plantImage);
+						plant.appendChild(plantName);
+						document.getElementById("allplants").append(plant);
+					}
+			});
 	}
 	
 	/** Clears the page **/
@@ -116,33 +116,33 @@ Purpose:
 		commentBox.innerHTML = "";
 		let url = "https://spschrisandduncan.herokuapp.com?mode=" + folder;
 		fetch(url)
-		    .then(checkStatus)
-		    .then(function(responseText) {
-		    	let json = JSON.parse(responseText);
-		    	for (let i = 0; i < json.messages.length; i++) {
-		    		if (json.messages[i].name != "") {
-		    			let newCommentDiv = document.createElement("div");
-			    		newCommentDiv.className = "comments";
-			    		let newName = document.createElement("p");
-			    		let newComment =document.createElement("span");
-			    		newName.innerHTML = json.messages[i].name + ": ";
-			    		newComment.innerHTML = json.messages[i].comment;
-			    		newName.appendChild(newComment);
-			    		newCommentDiv.appendChild(newName);
-			    		commentBox.appendChild(newCommentDiv);
-		    		}
-		    	}
-		    });
+			.then(checkStatus)
+			.then(function(responseText) {
+				let json = JSON.parse(responseText);
+				for (let i = 0; i < json.messages.length; i++) {
+					if (json.messages[i].name !== "") {
+						let newCommentDiv = document.createElement("div");
+						newCommentDiv.className = "comments";
+						let newName = document.createElement("p");
+						let newComment =document.createElement("span");
+						newName.innerHTML = json.messages[i].name + ": ";
+						newComment.innerHTML = json.messages[i].comment;
+						newName.appendChild(newComment);
+						newCommentDiv.appendChild(newName);
+						commentBox.appendChild(newCommentDiv);
+					}
+				}
+		});
 	}
 
-	function checkStatus(response) { 
-	    if (response.status >= 200 && response.status < 300) {  
-	        return response.text();
-	    } else if(response.status == 404) {
-	    	return Promise.reject(new Error("That page cannot be found."));
-	    } else {  
-	        return Promise.reject(new Error(response.status+": "+response.statusText)); 
-	    }
+	function checkStatus(response) {
+		if (response.status >= 200 && response.status < 300) {
+			return response.text();
+		} else if(response.status === 404) {
+			return Promise.reject(new Error("That page cannot be found."));
+		} else {
+			return Promise.reject(new Error(response.status+": "+response.statusText));
+		}
 	}
 
 }) ();
