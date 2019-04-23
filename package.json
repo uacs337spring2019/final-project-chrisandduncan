@@ -12,6 +12,10 @@
     "express": "^4.16.4",
     "fs": "0.0.1-security"
   },
+"repository": {
+    "type": "git",
+    "url": "git+https://github.com/uacs337spring2019/final-project-chrisandduncan.git"
+},
   "devDependencies": {},
   "description": ""
 }
