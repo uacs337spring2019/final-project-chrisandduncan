@@ -1,7 +1,7 @@
 {
   "name": "sps",
   "version": "1.0.0",
-  "main": "sps.js",
+  "main": "sps_service.js",
   "scripts": {
     "start": "node sps_service.js"
   },
