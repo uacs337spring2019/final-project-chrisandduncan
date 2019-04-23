@@ -13,7 +13,7 @@
   },
   "author": "Chris Loper",
   "license": "ISC",
-  "homepage": "https://github.com/uacs337spring2019/final-project-chrisandduncan/index.html",
+  "homepage": "https://github.com/uacs337spring2019/final-project-chrisandduncan/sps_service.js",
   "dependencies": {
     "body-parser": "^1.18.3",
     "ejs": "^2.5.6",
