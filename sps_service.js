@@ -34,6 +34,7 @@ app.get('/sps.js', function (req, res) {
 			res.send(JSON.stringify(info));
 		} else if (mode == "plants") {
 			json = get_plants(directory);
+			console.log("hello");
 			console.log(JSON.stringify(json));
 			res.send(JSON.stringify(json));
 		}
