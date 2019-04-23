@@ -54,7 +54,7 @@ Purpose:
 			fetch(url)
 			    .then(checkStatus)
 			    .then(function(responseText) {
-			    	json = JSON.parse(responseText);
+			    	json = responseText;
 				console.log(json);
 			    	for (let i = 0; i < json.plants.length; i++) {
 			    		let plant = document.createElement("div");
