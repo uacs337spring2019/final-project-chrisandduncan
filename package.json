@@ -1,9 +1,9 @@
 {
   "name": "sps",
   "version": "1.0.0",
-  "main": "sps_service.js",
+  "main": "sps.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node sps_service.js"
   },
   "author": "",
   "license": "ISC",
