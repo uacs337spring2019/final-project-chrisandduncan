@@ -23,7 +23,9 @@ app.get('/sps.js', function (req, res) {
 	if (req.query.mode == "plants" || req.query.mode == "description" || req.query.mode == "info") {
 		res.header("Access-Control-Allow-Origin", "*");
 		let plant = req.query.title;
+		console.log(plant);
 		let mode = req.query.mode;
+		console.log(mode);
 		let directory = fs.readdirSync("plants/");
 		let json = {};
 		if (mode == "info") {
