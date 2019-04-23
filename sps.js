@@ -137,6 +137,7 @@ Purpose:
 
 	function checkStatus(response) {
 		if (response.status >= 200 && response.status < 300) {
+			console.log(response.text());
 			return response.text();
 		} else if(response.status === 404) {
 			return Promise.reject(new Error("That page cannot be found."));
