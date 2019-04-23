@@ -1,24 +1,25 @@
 {
   "name": "sps",
   "version": "1.0.0",
-  "main": "sps.js",
+  "description": "Plant viewer",
+  "main": "sps_service.js",
   "scripts": {
-    "start": "node sps_service.js"
+    "start": "node sps_service.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uacs337spring2019/final-project-chrisandduncan.git"
+  },
+  "author": "Chris Loper",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "ejs": "^2.5.6",
     "express": "^4.16.4",
-    "fs": "0.0.1-security"
- },
-"repository": {
-    "type": "git",
-    "url": "git+https://github.com/uacs337spring2019/final-project-chrisandduncan.git"
-},
-  "devDependencies": {},
-  "description": "",
-"engines": {
-  "node": "10.15.1"
+    "node": "^11.13.0"
+  },
+  "engines": {
+    "node": "10.15.1"
   }
 }
