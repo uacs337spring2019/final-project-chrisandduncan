@@ -1,0 +1,135 @@
+/*
+	Duncan Rover, Chris Loper
+*/
+
+#allplants {
+	text-align: center;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+#folder {
+	visibility: hidden;
+}
+#allplants div {
+	background-color: #bd5734;
+	border-radius: 5px;
+	border: 1px solid #7a3b2e;
+	box-shadow: 5px 5px 15px #686256;
+	float: left;
+	margin: 5%;
+	text-align: center;
+	width: 200px;
+	height: 330px;
+}
+
+#allplants img {
+	margin-top: 10px;
+	height: 220px;
+	width: 150px;
+	border-radius: 5px;
+	border: 2px solid #7a3b2e;
+}
+
+#floatingbackground {
+	background-image: url("plant_background.jpg");
+	border-radius: 20px;
+	margin: 30px;
+	overflow: auto;
+	box-shadow: 5px 5px 5px black;
+}
+
+#home {
+	border: black solid 2px;
+	background-color: #4F3222;
+	border-radius: 5px;
+	margin: 10px;
+	color: black;
+	font-size: 18pt;
+	right: 10%;
+	padding: 3px;
+}
+
+body {
+	background-color: #454140;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	margin: 0px;
+}
+
+#plantinfo {
+	width: 50%;
+	margin-left: 5%;
+}
+
+#description {
+	text-align: justify;
+	font-size: 15pt;
+	font-weight: 600;
+}
+
+h2 {
+	border-bottom: 1px solid #e4e1da;
+}
+
+h3 {
+	margin: 0px;
+}
+
+#header {
+	background-image: url("redstone1.jpg");
+	/*background-color: #7a3b2e;*/
+	box-shadow: 0 5px 5px black;
+	height: 104px;
+	position: relative;
+}
+
+#header > div {
+	bottom: 0px;
+	color: #939384;
+	font-family: Tahoma, sans-serif;
+	font-size: 36pt;
+	text-align: center;
+}
+
+#header > div > span {
+	font-weight: bold;
+	color: black;
+}
+
+#singleplant img, #plantinfo {
+	float: left;
+	margin-top: 50px;
+}
+
+#singleplant img {
+	width: 200px;
+	margin-left: 8%;
+	border-radius: 5px;
+	border: 2px solid #454140;
+}
+
+textarea {
+	border: 1px #454140 solid;
+	background-color: #FFF5D0;
+	border-radius: 5px;
+	display: flex;
+	resize: none;
+}
+
+#send-load {
+	margin-bottom: 10px;
+}
+
+#commentbox {
+	padding-top: 10px;
+	padding-bottom: 40px;
+}
+
+.comments {
+	font-size: 12pt;
+	font-weight: 550;
+	border: 2px solid black;
+	padding-left: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color: #FFE4B5;
+}
