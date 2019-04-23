@@ -19,7 +19,8 @@ app.use(function(req, res, next) {
 
 app.use(express.static(__dirname));
 console.log("service started");
-app.get('/sps.js', function (req, res) {
+app.get('/', function (req, res) {
+	console.log("go in");
 	if (req.query.mode == "plants" || req.query.mode == "description" || req.query.mode == "info") {
 		res.header("Access-Control-Allow-Origin", "*");
 		let plant = req.query.title;
