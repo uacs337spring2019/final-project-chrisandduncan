@@ -39,6 +39,8 @@ app.get('/', function (req, res) {
 			console.log("hello");
 			console.log(JSON.stringify(json));
 			res.send(JSON.stringify(json));
+		} else {
+			res.send(JSON.stringify(json));
 		}
 	} else {
 		let json = {};
