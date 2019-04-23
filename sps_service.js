@@ -4,8 +4,7 @@ sps_service.js
 **/
 const express = require("express");
 const app = express();
-const app2 = express();
-var fs = require('fs');
+const fs = require('fs');
 
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
