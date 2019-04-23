@@ -55,6 +55,7 @@ Purpose:
 			    .then(checkStatus)
 			    .then(function(responseText) {
 			    	json = JSON.parse(responseText);
+				console.log(json);
 			    	for (let i = 0; i < json.plants.length; i++) {
 			    		let plant = document.createElement("div");
 			    		plant.addEventListener("click", plantInfo);
@@ -120,7 +121,6 @@ Purpose:
 		    .then(checkStatus)
 		    .then(function(responseText) {
 		    	let json = JSON.parse(responseText);
-			console.log(json);
 		    	for (let i = 0; i < json.messages.length; i++) {
 		    		if (json.messages[i].name != "") {
 		    			let newCommentDiv = document.createElement("div");
