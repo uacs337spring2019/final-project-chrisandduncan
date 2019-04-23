@@ -34,7 +34,7 @@ Purpose:
 			},
 			body : JSON.stringify(message)
 		};
-		let url = "http://spschrisandduncan.herokuapp.com";
+		let url = "https://spschrisandduncan.herokuapp.com";
 		fetch(url, fetchOptions)
 			.then(checkStatus)
 			.then(function(responseText) {
@@ -50,7 +50,7 @@ Purpose:
 		console.log("loadplants");
 		let singlePlant = document.getElementById("singleplant");
 		singlePlant.style.visibility = "hidden";
-		let url = "http://spschrisandduncan.herokuapp.com?mode=plants";
+		let url = "https://spschrisandduncan.herokuapp.com?mode=plants";
 			fetch(url)
 			    .then(checkStatus)
 			    .then(function(responseText) {
@@ -87,7 +87,7 @@ Purpose:
 		document.getElementById("singleplant").style.visibility = "visible";
 		// INFO
 		let folder = this.folder;
-		let url = "http://spschrisandduncan.herokuapp.com?mode=info&title=" + folder;
+		let url = "https://spschrisandduncan.herokuapp.com?mode=info&title=" + folder;
 		fetch(url)
 				.then(checkStatus)
 				.then(function(responseText) {
@@ -115,12 +115,12 @@ Purpose:
 		let folder = document.getElementById("folder").innerHTML;
 		let commentBox = document.getElementById("commentbox");
 		commentBox.innerHTML = "";
-		let url = "http://spschrisandduncan.herokuapp.com?mode=" + folder;
+		let url = "https://spschrisandduncan.herokuapp.com?mode=" + folder;
 		fetch(url)
 		    .then(checkStatus)
 		    .then(function(responseText) {
 		    	let json = JSON.parse(responseText);
-
+			console.log(json);
 		    	for (let i = 0; i < json.messages.length; i++) {
 		    		if (json.messages[i].name != "") {
 		    			let newCommentDiv = document.createElement("div");
