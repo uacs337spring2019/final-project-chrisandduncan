@@ -22,6 +22,7 @@ app.use(function(req, res, next) {
 //app.use(express.static('public'));
 console.log("service started");
 app.get('/', function (req, res) {
+	console.log(req.query.mode);
 	if (req.query.mode == "plants" || req.query.mode == "description" || req.query.mode == "info") {
 		console.log("plants, descript, info");
 		res.header("Access-Control-Allow-Origin", "*");
