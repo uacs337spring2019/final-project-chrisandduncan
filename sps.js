@@ -34,7 +34,7 @@ Purpose:
 			},
 			body : JSON.stringify(message)
 		};
-		let url = "http://spsduncanandchris.herokuapp.com";
+		let url = "http://spschrisandduncan.herokuapp.com";
 		fetch(url, fetchOptions)
 			.then(checkStatus)
 			.then(function(responseText) {
@@ -49,7 +49,7 @@ Purpose:
 	function loadPlants() {
 		let singlePlant = document.getElementById("singleplant");
 		singlePlant.style.visibility = "hidden";
-		let url = "http://spsduncanandchris.herokuapp.com?mode=plants";
+		let url = "http://spschrisandduncan.herokuapp.com?mode=plants";
 			fetch(url)
 			    .then(checkStatus)
 			    .then(function(responseText) {
@@ -86,7 +86,7 @@ Purpose:
 		document.getElementById("singleplant").style.visibility = "visible";
 		// INFO
 		let folder = this.folder;
-		let url = "http://spsduncanandchris.herokuapp.com?mode=info&title=" + folder;
+		let url = "http://spschrisandduncan.herokuapp.com?mode=info&title=" + folder;
 		fetch(url)
 				.then(checkStatus)
 				.then(function(responseText) {
@@ -99,7 +99,7 @@ Purpose:
 					//plantFolderName.style.visibility = "hidden";
 				});
 		// DESCRIPTION
-		url = "http://spsduncanandchris.herokuapp.com?mode=description&title=" + folder;
+		url = "http://spschrisandduncan.herokuapp.com?mode=description&title=" + folder;
 		fetch(url)
 				.then(checkStatus)
 				.then(function(responseText) {
@@ -114,7 +114,7 @@ Purpose:
 		let folder = document.getElementById("folder").innerHTML;
 		let commentBox = document.getElementById("commentbox");
 		commentBox.innerHTML = "";
-		let url = "http://spsduncanandchris.herokuapp.com?mode=" + folder;
+		let url = "http://spschrisandduncan.herokuapp.com?mode=" + folder;
 		fetch(url)
 		    .then(checkStatus)
 		    .then(function(responseText) {
