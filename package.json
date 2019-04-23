@@ -17,7 +17,7 @@
     "url": "git+https://github.com/uacs337spring2019/final-project-chrisandduncan.git"
 },
   "devDependencies": {},
-  "description": ""
+  "description": "",
 "engines": {
   "node": "10.15.1",
   "npm": "6.4.1"
