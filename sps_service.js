@@ -9,18 +9,18 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
-//app.use(function(req, res, next) {
-//    res.header("Access-Control-Allow-Origin", "*");
-//    res.header("Access-Control-Allow-Headers", 
-//               "Origin, X-Requested-With, Content-Type, Accept");
-// next();
-//});
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", 
+               "Origin, X-Requested-With, Content-Type, Accept");
+ next();
+});
 
 app.use(express.static(__dirname));
 console.log("service started");
 app.get('/', function (req, res) {
 	console.log("go in");
-	if (req.query.mode === "plants" || req.query.mode === "description" || req.query.mode === "info") {
+	if (req.query.mode == "plants" || req.query.mode == "description" || req.query.mode == "info") {
 		res.header("Access-Control-Allow-Origin", "*");
 		let plant = req.query.title;
 		console.log(plant);
@@ -28,13 +28,13 @@ app.get('/', function (req, res) {
 		console.log(mode);
 		let directory = fs.readdirSync("plants/");
 		let json = {};
-		if (mode === "info") {
+		if (mode == "info") {
 			json = get_info(plant);
 			res.send(JSON.stringify(json));
-		} else if (mode === "description") {
+		} else if (mode == "description") {
 			let info = fs.readFileSync("plants/" + plant + "/description.txt", "utf8");
 			res.send(JSON.stringify(info));
-		} else if (mode === "plants") {
+		} else if (mode == "plants") {
 			json = get_plants(directory);
 			console.log("hello");
 			console.log(JSON.stringify(json));
@@ -111,4 +111,3 @@ function get_info(plant) {
 	json["plants"].push(plants);
 	return json;
 }
-
