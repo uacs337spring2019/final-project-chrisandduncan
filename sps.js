@@ -34,7 +34,7 @@ Purpose:
 			},
 			body : JSON.stringify(message)
 		};
-		let url = "http://localhost:3001";
+		let url = "http://localhost:3000";
 		fetch(url, fetchOptions)
 			.then(checkStatus)
 			.then(function(responseText) {
@@ -114,7 +114,7 @@ Purpose:
 		let folder = document.getElementById("folder").innerHTML;
 		let commentBox = document.getElementById("commentbox");
 		commentBox.innerHTML = "";
-		let url = "http://localhost:3001?mode=" + folder;
+		let url = "http://localhost:3000?mode=" + folder;
 		fetch(url)
 		    .then(checkStatus)
 		    .then(function(responseText) {

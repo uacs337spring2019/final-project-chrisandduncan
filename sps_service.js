@@ -14,7 +14,7 @@ var fs = require('fs');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
-app2.use(function(req, res, next) {
+app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", 
                "Origin, X-Requested-With, Content-Type, Accept");
@@ -24,48 +24,49 @@ app2.use(function(req, res, next) {
 app.use(express.static('public'));
 console.log("service started");
 app.get('/', function (req, res) {
-	res.header("Access-Control-Allow-Origin", "*");
-	let plant = req.query.title;
-	let mode = req.query.mode;
-	let directory = fs.readdirSync("plants/");
-	let json = {};
-	if (mode == "info") {
-		json = get_info(plant);
-		res.send(JSON.stringify(json));
-	} else if (mode == "description") {
-		let info = fs.readFileSync("plants/" + plant + "/description.txt", "utf8");
-		res.send(JSON.stringify(info));
-	} else if (mode == "plants") {
-		json = get_plants(directory);
-		res.send(JSON.stringify(json));
-	} 
-});
+	if (req.query.mode == "plants" || req.query.mode == "description" || req.query.mode == "info") {
+		res.header("Access-Control-Allow-Origin", "*");
+		let plant = req.query.title;
+		let mode = req.query.mode;
+		let directory = fs.readdirSync("plants/");
+		let json = {};
+		if (mode == "info") {
+			json = get_info(plant);
+			res.send(JSON.stringify(json));
+		} else if (mode == "description") {
+			let info = fs.readFileSync("plants/" + plant + "/description.txt", "utf8");
+			res.send(JSON.stringify(info));
+		} else if (mode == "plants") {
+			json = get_plants(directory);
+			res.send(JSON.stringify(json));
+		}
+	} else {
+		let json = {};
+		let folder = req.query.mode;
+		let file = fs.readFileSync("plants/" + folder + "/comments.txt", "utf8");
+		let lines = file.split("\n");
+		let holder = [];
 
-app2.get('/', function(req, res) {
-	let json = {};
-	let folder = req.query.mode;
-	let file = fs.readFileSync("plants/" + folder + "/comments.txt", "utf8");
-	let lines = file.split("\n");
-	let holder = [];
+		// loop through each line and split it to gather name and comment
+		for (let i = 0; i < lines.length; i++) {
+			let line = lines[i].split(":::");
+			let lineInfo = {};
+			lineInfo["name"] = line[0];
+			lineInfo["comment"] = line[1];
+			holder[i] = lineInfo;
+		}
 
-	// loop through each line and split it to gather name and comment
-	for (let i = 0; i < lines.length; i++) {
-		let line = lines[i].split(":::");
-		let lineInfo = {};
-		lineInfo["name"] = line[0];
-		lineInfo["comment"] = line[1];
-		holder[i] = lineInfo;
+		// create JSON as such:
+		// {"messages" : [{"name" : "Merlin", "comment" : "meow"},
+	 	// {"name" : "Purcy", "comment" : "meow meow meow"},
+		// {"name" : "Merlin", "comment" : "grumble meow"}]}
+		json["messages"] = holder;
+		res.send(JSON.stringify(json)); 
 	}
-
-	// create JSON as such:
-	// {"messages" : [{"name" : "Merlin", "comment" : "meow"},
- 	// {"name" : "Purcy", "comment" : "meow meow meow"},
-	// {"name" : "Merlin", "comment" : "grumble meow"}]}
-	json["messages"] = holder;
-	res.send(JSON.stringify(json)); 
+ 
 });
 
-app2.post('/', jsonParser, function (req, res) {
+app.post('/', jsonParser, function (req, res) {
 	res.header("Access-Control-Allow-Origin", "*");
 	let name = req.body.name;
 	let comment = req.body.comment;
@@ -81,7 +82,6 @@ app2.post('/', jsonParser, function (req, res) {
 });
 
 app.listen(3000);
-app2.listen(3001);
 
 /** Gets all plants **/
 function get_plants(directory) {
