@@ -50,9 +50,11 @@ Purpose:
 		let singlePlant = document.getElementById("singleplant");
 		singlePlant.style.visibility = "hidden";
 		let url = "https://spschrisandduncan.herokuapp.com?mode=plants";
+		console.log("trying to fetch");
 			fetch(url)
 				.then(checkStatus)
 				.then(function(responseText) {
+				console.log(responseText);
 					json = JSON.parse(responseText);
 					for (let i = 0; i < json.plants.length; i++) {
 						let plant = document.createElement("div");
