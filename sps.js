@@ -50,7 +50,7 @@ Purpose:
 		let singlePlant = document.getElementById("singleplant");
 		singlePlant.style.visibility = "hidden";
 		let port = process.env.PORT;
-		let url = "https://spschrisandduncan.herokuapp.com:port?mode=plants";
+		let url = "https://spschrisandduncan.herokuapp.com?mode=plants";
 			fetch(url)
 				.then(checkStatus)
 				.then(function(responseText) {
