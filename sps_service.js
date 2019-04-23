@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(express.static('public'));
+//app.use(express.static('public'));
 console.log("service started");
 app.get('/', function (req, res) {
 	if (req.query.mode == "plants" || req.query.mode == "description" || req.query.mode == "info") {
