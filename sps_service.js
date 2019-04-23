@@ -1,7 +1,5 @@
 /**
-Christopher Loper
-18 MAR 2019
-Homework 7
+Christopher Loper and Duncan Rover
 sps_service.js
 **/
 const express = require("express");
@@ -22,9 +20,7 @@ app.use(function(req, res, next) {
 //app.use(express.static('public'));
 console.log("service started");
 app.get('/', function (req, res) {
-	console.log(req.query.mode);
 	if (req.query.mode == "plants" || req.query.mode == "description" || req.query.mode == "info") {
-		console.log("plants, descript, info");
 		res.header("Access-Control-Allow-Origin", "*");
 		let plant = req.query.title;
 		let mode = req.query.mode;
@@ -41,7 +37,6 @@ app.get('/', function (req, res) {
 			res.send(JSON.stringify(json));
 		}
 	} else {
-		console.log("comments");
 		let json = {};
 		let folder = req.query.mode;
 		let file = fs.readFileSync("plants/" + folder + "/comments.txt", "utf8");
