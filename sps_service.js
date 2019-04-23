@@ -16,9 +16,9 @@ app.use(function(req, res, next) {
  next();
 });
 
-app.use(express.static('public'));
+app.use(express.static(__dirname));
 console.log("service started");
-app.get('/', function (req, res) {
+app.get('/sps.js', function (req, res) {
 	console.log("go in");
 	if (req.query.mode == "plants" || req.query.mode == "description" || req.query.mode == "info") {
 		res.header("Access-Control-Allow-Origin", "*");
@@ -68,7 +68,7 @@ app.get('/', function (req, res) {
  
 });
 
-app.post('/', jsonParser, function (req, res) {
+app.post('/sps.js', jsonParser, function (req, res) {
 	res.header("Access-Control-Allow-Origin", "*");
 	let name = req.body.name;
 	let comment = req.body.comment;
