@@ -47,6 +47,7 @@ Purpose:
 
 	/** Loads all of the plants from the web service and displays them on the page**/
 	function loadPlants() {
+		console.log("loadplants");
 		let singlePlant = document.getElementById("singleplant");
 		singlePlant.style.visibility = "hidden";
 		let url = "http://spschrisandduncan.herokuapp.com?mode=plants";
