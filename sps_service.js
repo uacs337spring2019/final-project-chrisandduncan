@@ -2,9 +2,7 @@
 Christopher Loper
 18 MAR 2019
 Homework 7
-bestreads_service.js
-Purpose: Creates JSON objects about book review info
-Linked to bestreads.html
+sps_service.js
 **/
 const express = require("express");
 const app = express();
