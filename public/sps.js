@@ -64,7 +64,7 @@ Purpose:
 						let plantName = document.createElement("p");
 						plantName.appendChild(document.createTextNode(json.plants[i].name));
 						let plantImage = document.createElement("img");
-						plantImage.setAttribute("src", "../plants/" + json.plants[i].folder + "/plant.jpg");
+						plantImage.setAttribute("src", "plants/" + json.plants[i].folder + "/plant.jpg");
 						plant.appendChild(plantImage);
 						plant.appendChild(plantName);
 						document.getElementById("allplants").append(plant);
