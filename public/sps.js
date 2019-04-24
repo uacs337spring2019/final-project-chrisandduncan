@@ -101,7 +101,7 @@ Purpose:
 					//plantFolderName.style.visibility = "hidden";
 				});
 		// DESCRIPTION
-		url = "http://spschrisandduncan.herokuapp.com?mode=description&title=" + folder;
+		url = "https://spschrisandduncan.herokuapp.com?mode=description&title=" + folder;
 		fetch(url)
 				.then(checkStatus)
 				.then(function(responseText) {
